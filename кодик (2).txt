@@ -1,0 +1,46 @@
+print("欢迎来到苏希巴")
+login_credentials = {
+    "1": "123",
+    "2": "223"
+}
+username = input("Введите логин: ")
+password = input("Введите пароль: ")
+if (username in login_credentials) and (password == login_credentials[username]):
+    print("Вход выполнен успешно!")
+    sushi_menu = {
+        1: {"role": "Ролл 阿莫格斯", "цена": 200},
+        2: {"role": "Ролл 罗尔奇克", "цена": 150},
+        3: {"role": "Ролл 叶塞尼亚名字的秘密", "цена": 180},
+        4: {"role": "Ролл 菲洛德尔菲", "цена": 220},
+        5: {"role": "Ролл 超强大的超级游戏电脑", "цена": 190},
+        6: {"role": "Ролл 库坎赌场", "цена": 210},
+        7: {"role": "Ролл 胡椒粉", "цена": 160},
+        8: {"role": "Ролл 用黄瓜", "цена": 230},
+        9: {"role": "Ролл 与肉", "цена": 170},
+        10: {"role": "Ролл 配酱汁", "цена": 240}
+    }
+    print("Меню сушибара:")
+    for key, value in sushi_menu.items():
+        print(f"{key}. {value['role']}")
+
+    order = []
+    while True:
+        choice = int(input("Выберите номер ролла: "))
+        if choice in sushi_menu:
+            order.append(choice)
+            price = sushi_menu[choice]["цена"]
+            print(f"Стоимость выбранного ролла: {price} рублей.")
+            action = input("Выберите действие:\n1) Заказать ролл\n2) Завершить заказ\n")
+
+            if action == "1":
+                continue
+            elif action == "2":
+                print("Заказ оформлен!")
+                break
+            else:
+                print("Некорректное действие!")
+                break
+        else:
+            print("Некорректный выбор ролла!")
+else:
+    print("Неправильный логин или пароль!")
